@@ -30,6 +30,26 @@ jobs:
           mv themes.xml app/src/main/res/values/themes.xml
           mv build.gradle app/build.gradle
 
+          cat > settings.gradle <<'EOF'
+          pluginManagement {
+              repositories {
+                  google()
+                  mavenCentral()
+                  gradlePluginPortal()
+              }
+          }
+
+          dependencyResolutionManagement {
+              repositories {
+                  google()
+                  mavenCentral()
+              }
+          }
+
+          rootProject.name = "Vip-reward"
+          include ':app'
+          EOF
+
       - name: Set up Android SDK
         uses: android-actions/setup-android@v4
         with:
