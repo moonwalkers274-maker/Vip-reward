@@ -30,6 +30,9 @@ jobs:
           mv themes.xml app/src/main/res/values/themes.xml
           mv build.gradle app/build.gradle
 
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
       - name: Install Android SDK packages
         run: |
           yes | sdkmanager --licenses || true
